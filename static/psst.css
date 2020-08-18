@@ -1,0 +1,320 @@
+/* CSS Stylesheet for the Psst microblog */
+/* Author: Your Name                     */
+
+html {
+    background-color: #FFFFFF;
+    font-family: sans-serif;
+}
+body {
+	width: 1000px;
+	margin: auto;
+    margin-top: 45px;
+    font-family: courier;
+}
+.topbar {
+    display: block;
+    background: #00CC99;
+	width: 1000px;
+    margin-top: -45px;
+	height: 45px;
+    position: fixed;
+    z-index: 50;
+    float: left;
+    overflow: hidden;
+}
+.topbar img{
+    height: 95%;
+    width: 15%;
+    margin-left: 7.5%;
+    top: 2.5%
+}
+.topnav {
+	margin-left: 5%;
+}
+.topnav a{
+	float: left;
+	display: block;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 13px 0px;
+	width: 15%;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnav a:hover {
+	background-color: #FFFFFF;
+	color: black;
+}
+
+.topnav a.active {
+	background-color: #FFF555;
+	color: white;
+}
+#search input[type=text]{
+    position: absolute;
+    top: 0%;
+    right: 0px;
+    height: 100%;
+    width: 0%;
+    padding: 0% 0% 0% 5%;
+    background-image: url('/img/search.png');
+    background-position: 7.5px 7.5px;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-color: #00b386;
+    border: 0px;
+    overflow: hidden;
+    cursor: pointer;
+	-webkit-transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+	transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+#search input[type=text]:focus{
+    width: 30%;
+    margin-left: 65%;
+	-webkit-transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+	transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    cursor: text;
+    outline: none;
+    background-color: white;
+}
+
+#postform textarea {
+    resize: none;
+    padding: 3%;
+    text-indent: 10px;
+    margin: 5% 10% 0% 10%;
+    width: 74%;
+    height: 100px;
+    border: 0px solid #ccc;
+    border-radius: 2px;
+    font-size: 16px;
+}
+#postform input[type=submit]{
+    background-color: #00b386;
+    margin-left: 10%;
+    margin-top: -5px;
+    width: 80%;
+    border: none;
+    color: white;
+    padding: 5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+}
+
+
+/* FIX DIVS NOT BEING PLACED HORIZONTALLY (eg with 3 elements not being placed in 3/4 columns)*/
+.content{
+    box-shadow: 0px 0px 5px #888888;
+	padding: 30px;
+    background-color: #F5F5F5;
+    z-index: 2;
+}
+#psstColumns{
+	-webkit-column-count: 4;
+	-webkit-column-gap: 15px;
+	-webkit-column-fill: auto;
+	column-count: 4;
+	column-gap: 15px;
+	column-fill: auto;
+    background: transparent;
+    overflow: visible;
+    margin: -10px;/* This fixes Psst box-shadow glitch with webkit */
+}
+.psst:not(:hover) {
+    opacity: 0.8;
+    background: #FFFFFF;
+}
+.psst:hover {
+	box-shadow: 0 1px 15px #888888;
+}
+.psst{
+    float: left;
+	display: inline-block;
+	width: 100%;
+	min-height: 70px;
+	box-shadow: 0 1px 5px #888888;
+	margin: 10px;/* This fixes Psst box-shadow glitch with webkit */
+	-webkit-column-break-inside: avoid;
+	column-break-inside: avoid;
+	padding: 0px;
+	padding-bottom: 5px;
+	background: #FFFFFF;
+	opacity: 1;
+    overflow: hidden;
+	position: relative;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+}
+.psst img {
+    position: relative;
+    z-index: 1;
+	width: 100%;
+    box-shadow: 0px 0px 10px #000000;
+}
+.psst #timestamp {
+    position: absolute;
+    font-size: 10px;
+    bottom: 5px;
+    right: 5px;
+	color: #666666;
+    pointer-events: none;
+}
+/* change this font */
+.psst p {
+	font: 12px/18px Arial, sans-serif;
+	margin: 0;
+    padding: 15px;
+}
+#profileTab{
+    top: -45px;
+    left: 5px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+	box-shadow: 0 1px 5px #888888;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+    overflow: hidden;
+    display: block;
+    background: #00b386;
+    z-index: 2;
+}
+#profileTab img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#profileTab #name{
+    position: absolute;
+    font-size: 10px;
+    bottom: 5px;
+    left: 2px;
+    color: #FFFFFF;
+    text-shadow: 0px 0px 2px #0F0F0F;
+    z-index: 3;
+    pointer-events: none;
+}
+#profileTab:hover{
+    top: -5px;
+}
+#titleblock {
+    margin-top: 45px;
+    height: 200px;
+    overflow: hidden;
+    background-color: #F9F9F9;
+    z-index: 1;
+}
+#titleblock #title{
+    position: absolute;
+    font-size: 30px;
+    bottom: 15px;
+    left: 15px;
+    text-shadow: 0px 0px 1px #0F0F0F;
+    pointer-events: none;
+}
+#titleblock #colLeft{
+    width: 500px;
+    display: block;
+    height: 100%;
+    float: left;
+    background: #f2f2f2;
+}
+#titleblock #colRight{
+    width: 498px;
+    border-left: 2px solid #cccccc;
+    display: block;
+    height: 100%;
+    float: left;
+}
+#loginBox{
+    margin: 0px;
+    padding: 15px 20px 20px 20px;
+}
+#loginBox h1{
+    margin: 2px 5px 5px 5px;
+    padding 0px;
+    font-size: 20px;
+}
+#loginBox h2{
+    margin: 0px;
+    padding 0px;
+    font-size: 15px;
+}
+#loginBox h3{
+    display: inline-block;
+    margin: 0px;
+    padding: 10px 20px 10px 20px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+#loginBox label{
+    margin: 0px 0px 0px 50px;
+    padding 0px;
+    font-size: 15px;
+
+}
+#loginBox input[name=nick], input[name=password] {
+    padding: 10px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin: 2px;
+    width: 50%;
+}
+#loginBox input[value=logout]{
+   display: block;
+
+}
+#loginBox #avatar{
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    background: #00b386;
+    box-sizing: border-box;
+    border: 2px solid #00b386;
+    border-radius: 6px;
+}
+#loginBox input[type=submit]{
+
+    background-color: #00b386;
+    margin-left: 135px;
+    margin-top: 5px;
+    width: 49%;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+#logoutform input[type=submit], #mypostsform input[type=submit]{
+    background-color: #00b386;
+    margin-left: 10px;
+    width: 140px;
+    border: none;
+    color: white;
+    float: left;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+}
+#joinImg {
+    margin-left: 5%;
+    width: 90%;
+    height 90%;
+}
+#colLeft #header{
+    padding: 50px 0px 0px 35px;
+}
+.hashtag {
+    color: #cccccc
+}
